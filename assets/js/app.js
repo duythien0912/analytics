@@ -96,7 +96,9 @@ const embedButton = document.getElementById('generate-embed')
 if (embedButton) {
   embedButton.addEventListener('click', function(e) {
     const embedCode = document.getElementById('embed-code')
-    const linkValue = document.getElementById('embed-link').value
-    embedCode.value = `<iframe id="plausible-embed" src="${linkValue}" width="100%" height="1700px" scrolling="no"></iframe>`
+    const embedLink = new URL(document.getElementById('embed-link').value)
+    embedLink.searchParams.set('embed', 'true')
+
+    embedCode.value = `<iframe id="plausible-embed" src="${embedLink.toString()}" width="100%" height="1700px" scrolling="no"></iframe>`
   })
 }

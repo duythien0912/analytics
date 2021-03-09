@@ -136,7 +136,8 @@ defmodule PlausibleWeb.StatsController do
       title: "Plausible · " <> shared_link.site.domain,
       offer_email_report: false,
       demo: false,
-      shared_link_auth: shared_link.slug
+      shared_link_auth: shared_link.slug,
+      embedded: conn.params["embed"] == "true"
     )
   end
 
